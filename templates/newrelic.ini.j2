@@ -27,19 +27,19 @@
 # You must specify the license key associated with your New
 # Relic account. This key binds the Python Agent's data to your
 # account in the New Relic service.
-license_key = {{ license_key }}
+license_key = {{ newrelic_license_key }}
 
 # The appplication name. Set this to be the name of your
 # application as you would like it to show up in New Relic UI.
 # The UI will then auto-map instances of your application into a
 # entry on your home dashboard page.
-app_name = {{ newrelic_python_app_name }}
+app_name = {{ newrelic_python_agent_app_name }}
 
 # When "true", the agent collects performance data about your
 # application and reports this data to the New Relic UI at
 # newrelic.com. This global switch is normally overridden for
 # each environment below.
-monitor_mode = {{ monitor_mode }}
+monitor_mode = {{ newrelic_monitor_mode }}
 
 # Sets the name of a file to log agent messages to. Useful for
 # debugging any issues with the agent. This is not set by
@@ -52,7 +52,7 @@ monitor_mode = {{ monitor_mode }}
 # write out a log file, it is also possible to say "stderr" and
 # output to standard error output. This would normally result in
 # output appearing in your web server log.
-log_file = {{ log_location }}
+log_file = {{ newrelic_python_logfile }}
 
 # Sets the level of detail of messages sent to the log file, if
 # a log file location has been provided. Possible values, in
@@ -63,7 +63,7 @@ log_file = {{ log_location }}
 # of information very quickly, so it is best not to keep the
 # agent at this level for longer than it takes to reproduce the
 # problem you are experiencing.
-log_level = {{ log_level }}
+log_level = {{ newrelic_loglevel }}
 
 # The Python Agent communicates with the New Relic service using
 # HTTP by default. If you want to communicate via HTTPS to
@@ -72,7 +72,7 @@ log_level = {{ log_level }}
 # perform the encryption involved in SSL communication, but this
 # work is done asynchronously to the threads that process your
 # application code, so it should not impact response times.
-ssl = {{ ssl }}
+ssl = {{ newrelic_ssl }}
 
 # The Python Agent will attempt to connect directly to the New
 # Relic service. If there is an intermediate firewall between
@@ -103,7 +103,7 @@ ignored_params =
 # transactions and sends this to the UI on a periodic basis. The
 # transaction tracer is enabled by default. Set this to "false"
 # to turn it off.
-transaction_tracer.enabled = {{ transaction_trace }}
+transaction_tracer.enabled = {{ newrelic_python_transaction_trace }}
 
 # Threshold in seconds for when to collect a transaction trace.
 # When the response time of a controller action exceeds this

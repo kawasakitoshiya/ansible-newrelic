@@ -29,3 +29,12 @@
     name: newrelic-sysmond
     state: started
     enabled: yes
+
+- name: Render Newrelic Python Agent Configuration
+  template:
+    src: newrelic.ini.j2
+    dest: /etc/newrelic/newrelic.ini
+    group: newrelic
+    owner: root
+    mode: 0640
+  when: newrelic_python_agent

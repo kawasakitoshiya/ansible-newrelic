@@ -1,6 +1,7 @@
 ---
 newrelic_loglevel: info
-newrelic_logfile: /var/log/newrelic/nrsysmond.log
+newrelic_log_location: /var/log/newrelic
+newrelic_logfile: "{{ newrelic_log_location }}/nrsysmond.log"
 newrelic_proxy: False
 newrelic_ssl: "false"
 newrelic_ssl_ca_bundle: False
@@ -8,3 +9,10 @@ newrelic_ssl_ca_path: False
 newrelic_pidfile: /var/run/newrelic/nrsysmond.pid
 newrelic_collector_host: collector.newrelic.com
 newrelic_timeout: 30
+
+# newrelic python agent
+newrelic_python_agent: false
+newrelic_python_agent_app_name: ''
+newrelic_monitor_mode: true
+newrelic_python_logfile: "{{ newrelic_log_location }}/newrelic-python-agent.log"
+

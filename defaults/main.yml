@@ -11,8 +11,8 @@ newrelic_collector_host: collector.newrelic.com
 newrelic_timeout: 30
 
 # newrelic python agent
-newrelic_python_agent: false
-newrelic_python_agent_app_name: ''
-newrelic_monitor_mode: true
+newrelic_python_agent: 'false'
+newrelic_python_agent_app_name: 'Unnamed Application'
+newrelic_monitor_mode: 'true'
 newrelic_python_logfile: "{{ newrelic_log_location }}/newrelic-python-agent.log"
-newrelic_python_transaction_trace: true
+newrelic_python_transaction_trace: 'true'

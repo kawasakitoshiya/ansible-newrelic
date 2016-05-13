@@ -172,8 +172,8 @@ thread_profiler.enabled = true
 [background-task:{{ background_task['task-name'] }}]
 enabled = true
 function = {{ background_task['function'] }}
-name = background_task['name']
-group = Django
+name = {{ background_task['name'] }}
+group = {{ background_task['group'] }}
 {% endfor %}
 
 # ---------------------------------------------------------------------------

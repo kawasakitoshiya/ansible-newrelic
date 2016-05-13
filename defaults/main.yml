@@ -16,3 +16,4 @@ newrelic_python_agent_app_name: 'Unnamed Application'
 newrelic_monitor_mode: 'true'
 newrelic_python_logfile: "{{ newrelic_log_location }}/newrelic-python-agent.log"
 newrelic_python_transaction_trace: 'true'
+newrelic_python_agent_background_tasks: []

@@ -167,6 +167,19 @@ browser_monitoring.auto_instrument = true
 thread_profiler.enabled = true
 
 # ---------------------------------------------------------------------------
+# Background tasks
+{% for background_task in newrelic_python_agent_background_tasks %}
+[background-task:{{ background_task['task-name'] }}]
+enabled = true
+function = {{ background_task['function'] }}
+name = background_task['name']
+group = Django
+{% endfor %}
+
+# ---------------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------------
 
 #
 # The application environments. These are specific settings which

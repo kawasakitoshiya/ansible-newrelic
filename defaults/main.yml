@@ -10,6 +10,8 @@ newrelic_pidfile: /var/run/newrelic/nrsysmond.pid
 newrelic_collector_host: collector.newrelic.com
 newrelic_timeout: 30
 
+newrelic_debian_repo: https://download.newrelic.com/infrastructure_agent/linux/apt
+
 # newrelic python agent
 newrelic_python_agent: 'false'
 newrelic_python_agent_app_name: 'Unnamed Application'

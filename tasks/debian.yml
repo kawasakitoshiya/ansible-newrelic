@@ -11,7 +11,7 @@
 
 - name: Debian | Add New Relic repository
   copy:
-    content: "deb http://apt.newrelic.com/debian/ newrelic non-free"
+    content: "deb {{ newrelic_debian_repo }} {{ ansible_distribution_release }} main"
     dest: /etc/apt/sources.list.d/newrelic.list
     owner: root
     group: root

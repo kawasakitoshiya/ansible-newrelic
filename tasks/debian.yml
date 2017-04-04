@@ -1,7 +1,7 @@
 ---
-- name: Debian | Set loaded_os_family
+- name: Debian | Set newrelic_loaded_os_family
   set_fact:
-    loaded_os_family: "{{ ansible_os_family }}"
+    newrelic_loaded_os_family: "{{ ansible_os_family }}"
 
 - name: Debian | Add New Relic repo key
   apt_key:
@@ -11,8 +11,11 @@
 
 - name: Debian | Add New Relic repository
   copy:
-    content: "deb http://apt.newrelic.com/debian/ newrelic non-free"
+    content: "deb {{ newrelic_debian_repo }} {{ ansible_distribution_release }} main"
     dest: /etc/apt/sources.list.d/newrelic.list
+    owner: root
+    group: root
+    mode: 0644
   register: newrelic_repo
 
 - name: Debian | apt-get update

@@ -1,5 +1,4 @@
 ---
-# tasks file for newrelic
 - name: Check for newrelic_license_key
   fail:
     msg: "newrelic_license_key has not been defined"
@@ -12,7 +11,7 @@
   when: ansible_os_family == 'RedHat'
 
 - include: default.yml
-  when: loaded_os_family|default(False) == False
+  when: newrelic_loaded_os_family|default(False) == False
 
 - name: Configure New Relic Sysmond
   template:
@@ -23,4 +22,19 @@
     mode: 0640
   notify:
     - Restart New Relic
-  when: loaded_os_family|default(False) != False
+  when: newrelic_loaded_os_family|default(False) != False
+
+- name: Ensure New Relic Sysmond is started and enabled
+  service:
+    name: newrelic-sysmond
+    state: started
+    enabled: yes
+
+- name: Render Newrelic Python Agent Configuration
+  template:
+    src: newrelic.ini.j2
+    dest: /etc/newrelic/newrelic.ini
+    group: newrelic
+    owner: root
+    mode: 0640
+  when: newrelic_python_agent
